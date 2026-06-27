@@ -1,86 +1,128 @@
-\# Mini Air Defence System
+# Mini Air Defence System
 
+## Overview
 
+This project is an AI-powered Mini Air Defence System developed using computer vision, embedded systems, and IoT technologies. It uses a custom-trained YOLO11 model to detect aerial objects in real time and communicates with an Arduino-controlled turret to perform automated target response.
 
-AI-powered Cyber Physical Security System using YOLOv11, Arduino and Computer Vision.
+Unlike the default YOLO model trained on the COCO dataset, this project uses a custom dataset specifically prepared for aerial object detection.
 
+The model can detect the following objects:
 
+* Drone
+* Bird
+* Helicopter
+* Airplane
 
-\## Features
+## Features
 
+* Custom-trained YOLO11 object detection model
+* Real-time aerial object detection
+* Arduino-based turret control
+* Ultrasonic sensor integration
+* Automatic target image capture
+* Telegram notifications
+* CUDA GPU acceleration
 
+## Technologies Used
 
-\- Real-time object detection
+### Programming Languages
 
-\- YOLOv11 based target classification
+* Python
+* Arduino (C/C++)
 
-\- Arduino servo control
+### Libraries
 
-\- Radar visualization
+* Ultralytics YOLO11
+* OpenCV
+* PyTorch
+* PySerial
+* Requests
 
-\- Telegram alerts
+### Hardware
 
-\- Manual firing mode
+* Arduino UNO
+* SG90 Servo Motors
+* HC-SR04 Ultrasonic Sensor
+* USB Webcam
 
-\- Automatic target detection
+## Project Structure
 
+```text
+Mini-Air-Defence-System
+│
+├── Arduino
+├── Processing
+├── Python
+│   ├── main.py
+│   ├── best.pt
+│   └── requirements.txt
+│
+├── README.md
+└── LICENSE
+```
 
+## Installation
 
-\## Technologies
+Clone the repository.
 
+```bash
+git clone https://github.com/pardhavreddy0312/Mini-Air-Defence-System.git
+```
 
+Move into the project directory.
 
-\- Python
+```bash
+cd Mini-Air-Defence-System
+```
 
-\- OpenCV
+Install the required libraries.
 
-\- YOLOv11
+```bash
+pip install -r requirements.txt
+```
 
-\- Arduino
+Run the project.
 
-\- Processing
+```bash
+python main.py
+```
 
-\- CPS
+## How It Works
 
+1. The webcam captures live video.
+2. The custom YOLO11 model detects aerial objects.
+3. If a valid target is detected, the Arduino receives the command through serial communication.
+4. The turret performs the configured action.
+5. The detected frame is saved.
+6. A Telegram notification with the captured image is sent.
 
+## Model Performance
 
-\## Hardware
+| Class      | mAP@50 |
+| ---------- | :----: |
+| Drone      |  85.7% |
+| Bird       |  27.9% |
+| Helicopter |  67.6% |
+| Airplane   |  99.5% |
 
+Overall **mAP@50:** **70.2%**
 
+## Future Work
 
-\- Arduino UNO
+* DeepSORT-based object tracking
+* Kalman Filter for smoother target tracking
+* Multi-target tracking
+* Target prioritization
+* Improved custom dataset
 
-\- Ultrasonic Sensor
+## Author
 
-\- Servo Motor
+**Pardhav Reddy**
 
-\- Webcam
+B.Tech – Artificial Intelligence (Cyber Physical Systems & Security)
 
+Amrita Vishwa Vidyapeetham
 
+## License
 
-\## Applications
-
-
-
-\- Smart Surveillance
-
-\- Restricted Area Security
-
-\- CPS Research
-
-
-
-\## Team
-
-
-
-\-ANNAREDDY PARDHAV REDDY
-
-\-DHIREN VASUDEVA
-
-\-R GAGAN CHOWDARY
-
-\-C SAI HARDHIK REDDY
-
-\-CHUNDURU VENKATA ABHIRAM
-
+This project is licensed under the MIT License.
