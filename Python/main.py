@@ -12,9 +12,9 @@ BAUD_RATE = 115200
 
 CONFIDENCE = 0.5
 
-# bottle, phone, book, cup, backpack
-TARGET_CLASSES = [39, 67, 73, 41, 24]
 
+# drone, bird, helicopter, airplane
+TARGET_CLASSES = [0, 1, 2, 3]
 # ---------- TELEGRAM ----------
 BOT_TOKEN = "YOUR TOKEN"
 CHAT_ID = "YOUR CHAT ID"
@@ -35,10 +35,10 @@ Auto Turret Fired Successfully
 Time: {current_time}
 """
 
-    url = f"https://api.telegram.org/bot8057290238:AAGg4KnvtIou4jfa6Kmo-8d-663KmUhY3cE/sendMessage"
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
     data = {
-        "chat_id": 8013272467,
+        "chat_id": CHAT_ID,
         "text": message
     }
 
@@ -104,10 +104,10 @@ except Exception as e:
     exit()
 
 # ---------- LOAD YOLO ----------
-model = YOLO("yolo11n.pt")
+model = YOLO("best.pt")
 
 # FORCE CPU MODE
-model.to("cpu")
+
 
 print("YOLO Model Loaded")
 
@@ -142,8 +142,8 @@ cv2.namedWindow("Sky Forge Vision HUD", cv2.WINDOW_NORMAL)
 # ---------- DETECTION FUNCTION ----------
 def scan_frame(frame):
 
-    # RUN YOLO ON CPU
-    results = model(frame, verbose=False, device="cpu")
+    
+    results = model(frame, verbose=False, device=0)
 
     threat_detected = False
 
