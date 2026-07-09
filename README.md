@@ -200,7 +200,6 @@ python main.py
 
 | Class      | mAP@50 |
 
-| ---------- | :----: |
 
 | Drone      |  85.7% |
 
