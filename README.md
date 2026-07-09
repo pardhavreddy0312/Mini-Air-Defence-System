@@ -235,7 +235,7 @@ Overall \*\*mAP@50:\*\* \*\*70.2%\*\*
 
 
 
-\*\*Pardhav Reddy\*\*
+A Pardhav Reddy
 
 
 
